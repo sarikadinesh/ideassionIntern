@@ -1,16 +1,17 @@
 public class Main {
     public static void main(String[] args) {
-        PeripheralDevice device1 = new PeripheralDevice("Mouse");
-        PeripheralDevice device2 = new PeripheralDevice("Keyboard");
-        PeripheralDevice device3 = new PeripheralDevice("CPU");
-       PeripheralDevice device4 = new PeripheralDevice("Earphones");
+        // Create peripheral devices with unique IDs
+        PeripheralDevice keyboard = new PeripheralDevice(101, "Keyboard");
+        PeripheralDevice mouse = new PeripheralDevice(102, "Mouse");
+        PeripheralDevice monitor = new PeripheralDevice(103, "Monitor");
 
-        Computer computer = new Computer();
-        computer.addPeripheralDevice(device1);
-        computer.addPeripheralDevice(device2);
-        computer.addPeripheralDevice(device3);
-        computer.addPeripheralDevice(device4);
+        // Create a computer with a unique ID and add peripheral devices
+        Computer computer = new Computer(1, "Dell");
+        computer.addPeripheral(keyboard);
+        computer.addPeripheral(mouse);
+        computer.addPeripheral(monitor);
 
-        computer.showPeripheralDevices();  
+        // Display computer and its peripherals
+        computer.displayInfo();
     }
 }

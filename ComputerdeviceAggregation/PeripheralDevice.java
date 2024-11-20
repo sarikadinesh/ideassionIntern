@@ -1,11 +1,17 @@
 public class PeripheralDevice {
-    String deviceName;
+    private int id; // Unique ID for the peripheral device
+    private String name;
 
-    public PeripheralDevice(String deviceName) {
-        this.deviceName = deviceName;
+    public PeripheralDevice(int id, String name) {
+        this.id = id;
+        this.name = name;
     }
 
-    public String getDeviceName() {
-        return deviceName;
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
     }
 }

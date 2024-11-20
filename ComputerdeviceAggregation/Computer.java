@@ -1,19 +1,35 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Computer {
-    private List<PeripheralDevice> peripheralDevices;
+    private int id; // Unique ID for the computer
+    private String brand;
+    private List<PeripheralDevice> peripherals;
 
-    public Computer() {
-        peripheralDevices = new ArrayList<>();
+    public Computer(int id, String brand) {
+        this.id = id;
+        this.brand = brand;
+        this.peripherals = new ArrayList<>();
     }
 
-    public void addPeripheralDevice(PeripheralDevice peripheralDevice) {
-        peripheralDevices.add(peripheralDevice);
+    public int getId() {
+        return id;
     }
 
-    public void showPeripheralDevices() {
-        for (PeripheralDevice device : peripheralDevices) {
-            System.out.println(device.getDeviceName());
+    public String getBrand() {
+        return brand;
+    }
+
+    public void addPeripheral(PeripheralDevice device) {
+        peripherals.add(device);
+    }
+
+    public void displayInfo() {
+        System.out.println("Computer ID: " + id);
+        System.out.println("Computer Brand: " + brand);
+        System.out.println("Connected Peripheral Devices:");
+        for (PeripheralDevice device : peripherals) {
+            System.out.println(" - " + device.getId() + ": " + device.getName());
         }
     }
 }
