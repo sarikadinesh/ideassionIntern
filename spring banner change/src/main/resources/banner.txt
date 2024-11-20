@@ -1,0 +1,18 @@
+${AnsiColor.RED}===============================================
+${AnsiColor.BRIGHT_YELLOW}||          Welcome to the App!              ||
+${AnsiColor.BRIGHT_BLUE}||        Powered by Spring Boot 🚀          ||
+${AnsiColor.BRIGHT_GREEN}===============================================
+
+${AnsiColor.BRIGHT_CYAN}           ____             ____            
+         /      \         /      \        
+        /        \       /        \      
+       |  /\  /\  |     |  /\  /\  |     
+       | /  \/  \ |     | /  \/  \ |    
+       | \      / |     | \      / |     
+        \______/         \______/
+         |    |           |    |         
+         |    |           |    |         
+         |    |           |    |         
+         |    |           |    |         
+${AnsiColor.BRIGHT_MAGENTA}===============================================
+${AnsiColor.DEFAULT}
