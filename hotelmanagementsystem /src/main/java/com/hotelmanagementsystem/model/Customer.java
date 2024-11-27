@@ -1,18 +1,24 @@
 package com.hotelmanagementsystem.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Customer {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String customerName;
 
-    private String orderStatus;
+    private String phoneNumber;
 
-    private String paymentStatus;
+    private int age;
 
     @OneToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
@@ -35,20 +41,20 @@ public class Customer {
         this.customerName = customerName;
     }
 
-    public String getOrderStatus() {
-        return orderStatus;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setOrderStatus(String orderStatus) {
-        this.orderStatus = orderStatus;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
-    public String getPaymentStatus() {
-        return paymentStatus;
+    public int getAge() {
+        return age;
     }
 
-    public void setPaymentStatus(String paymentStatus) {
-        this.paymentStatus = paymentStatus;
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public User getUser() {

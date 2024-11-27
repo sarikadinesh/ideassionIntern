@@ -15,11 +15,14 @@ public class OrdersController {
     @Autowired
     private OrdersService ordersService;
 
+    // Get all orders
     @GetMapping
     public ResponseEntity<List<Orders>> getAllOrders() {
-        return ResponseEntity.ok(ordersService.getAllOrders());
+        List<Orders> orders = ordersService.getAllOrders();
+        return ResponseEntity.ok(orders);
     }
 
+    // Get an order by ID
     @GetMapping("/{id}")
     public ResponseEntity<Orders> getOrderById(@PathVariable Long id) {
         return ordersService.getOrderById(id)
@@ -27,27 +30,27 @@ public class OrdersController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    // Create a new order
     @PostMapping
     public ResponseEntity<Orders> createOrder(@RequestBody Orders order) {
-        return ResponseEntity.ok(ordersService.createOrder(order));
+        Orders createdOrder = ordersService.createOrder(order);
+        return ResponseEntity.status(201).body(createdOrder);
     }
 
+    // Update an existing order
     @PutMapping("/{id}")
-    public ResponseEntity<Orders> updateOrder(@PathVariable Long id, @RequestBody Orders updatedOrder) {
-        return ordersService.updateOrder(id, updatedOrder)
+    public ResponseEntity<Orders> updateOrder(@PathVariable Long id, @RequestBody Orders order) {
+        return ordersService.updateOrder(id, order)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    // Delete an order by ID
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteOrder(@PathVariable Long id) {
-        ordersService.deleteOrder(id);
-        return ResponseEntity.noContent().build();
-    }
-
-    @DeleteMapping
-    public ResponseEntity<Void> deleteAllOrders() {
-        ordersService.deleteAllOrders();
-        return ResponseEntity.noContent().build();
+        if (ordersService.deleteOrder(id)) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.notFound().build();
     }
 }

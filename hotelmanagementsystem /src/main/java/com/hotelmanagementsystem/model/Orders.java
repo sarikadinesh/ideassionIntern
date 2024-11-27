@@ -12,18 +12,20 @@ public class Orders {
 
     @ManyToOne
     @JoinColumn(name = "customer_id", nullable = false)
-    private Customer customer;
+    private Customer customer;  // References the updated Customer entity
 
     @ManyToOne
     @JoinColumn(name = "chef_id", nullable = false)
-    private User chef;
+    private User chef;  // References the User entity for Chef role
 
     @ManyToOne
     @JoinColumn(name = "server_id", nullable = false)
-    private User server;
+    private User server;  // References the User entity for Server role
 
     private LocalDate orderDate;
+
     private String orderStatus;
+
     private String paymentStatus;
 
     // Getters and Setters

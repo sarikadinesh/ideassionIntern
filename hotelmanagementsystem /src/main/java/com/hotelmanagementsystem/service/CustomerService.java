@@ -42,15 +42,15 @@ public class CustomerService {
         if (existingCustomer.isPresent()) {
             Customer updatedCustomer = existingCustomer.get();
 
-            // Update fields as needed
+            // Update the fields accordingly
             updatedCustomer.setCustomerName(customer.getCustomerName());
-            updatedCustomer.setOrderStatus(customer.getOrderStatus());
-            updatedCustomer.setPaymentStatus(customer.getPaymentStatus());
-            updatedCustomer.setUser(customer.getUser());  // Update the user, if necessary
+            updatedCustomer.setPhoneNumber(customer.getPhoneNumber());  // Update phone number
+            updatedCustomer.setAge(customer.getAge());  // Update age
+            updatedCustomer.setUser(customer.getUser());  // Update the user if necessary
 
             return customerRepository.save(updatedCustomer);  // Save the updated customer
         } else {
-            throw new RuntimeException("Customer not found with id " + id); // Customer not found
+            throw new RuntimeException("Customer not found with id " + id);  // Customer not found
         }
     }
 }
