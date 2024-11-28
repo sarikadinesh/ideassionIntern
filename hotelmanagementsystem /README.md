@@ -17,7 +17,6 @@ A Hotel Management System built with Java (Spring Boot) and JPA, designed to eff
 - **Spring Boot**: Framework for building the backend RESTful API services.
 - **JPA (Jakarta Persistence API)**: For database interaction and ORM.
 - **MySQL**: A relational database management system for storing data (replacing H2 in production).
-- **Lombok**: Used for reducing boilerplate code (optional).
 - **Postman**: For testing and interacting with the API.
 
 
